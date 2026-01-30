@@ -1,0 +1,21 @@
+{
+  "tasks": {
+    "build-client": "deno bundle --platform browser --outdir . front-end.tsx",
+    "dev-client": "deno task build-client --watch",
+    "dev-server": "deno serve --allow-read=. --watch back-end.ts",
+    "dev": {
+      "dependencies": ["dev-client", "dev-server"]
+    }
+  },
+  "imports": {
+    "@std/http": "jsr:@std/http@^1.0.24",
+    "preact": "npm:preact@^10.28.2"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
+  "fmt": {
+    "semiColons": false
+  }
+}
